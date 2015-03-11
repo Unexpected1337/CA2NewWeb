@@ -5,10 +5,10 @@
     <class>entity.InfoEntity</class>
     <class>entity.Hobby</class>
     <class>entity.Person</class>
-    <class>entity.Company</class>
     <class>entity.Phone</class>
     <class>entity.Address</class>
     <class>entity.CityInfo</class>
+    <class>entity.Company</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/CA2Web"/>

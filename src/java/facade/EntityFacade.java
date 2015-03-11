@@ -5,6 +5,8 @@
  */
 package facade;
 
+import entity.Address;
+import entity.CityInfo;
 import entity.Hobby;
 import entity.Person;
 import java.io.Serializable;
@@ -33,7 +35,13 @@ public class EntityFacade implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(person);
+            Address a = person.getAddress();
+            CityInfo c = a.getCityInfo();
+            c = em.merge(c);
+            a.setCityInfo(c);
+            a = em.merge(a);
+            person.setAddress(a);
+            person = em.merge(person);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -55,6 +63,9 @@ public class EntityFacade implements Serializable {
             }
         }
     }
+    
+  
+    
 
     public Person addHobby(Person person, Hobby h) {
         person.addHobby(h);

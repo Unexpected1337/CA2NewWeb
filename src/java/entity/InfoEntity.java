@@ -12,7 +12,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,6 +23,7 @@ import javax.persistence.OneToMany;
  * @author Afrooz
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class InfoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,13 +31,25 @@ public class InfoEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String email;
-    
-    Address address = new Address();
-
+   
     @OneToMany
     @JoinColumn(name = "FK_Phone")
     List<Phone> phones = new ArrayList();
+    
+    @ManyToOne
+    @JoinColumn(name = "FK_INFOENTITY")
+    private Address address;
+    
+    public Address getAddress(){
+    return address;
+    }    
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    
+    
+    
     public void addPhones(Phone p) {
         phones.add(p);
     }
