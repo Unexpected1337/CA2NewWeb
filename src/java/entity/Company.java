@@ -5,21 +5,14 @@
  */
 package entity;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
- * @author Afrooz
+ * @author saleh
  */
 @Entity
-public class Company implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Company extends InfoEntity{
     private Integer id;
     private String name;
     private String description;
@@ -27,23 +20,14 @@ public class Company implements Serializable {
     private int numEmployees;
     private Float marketValue;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Company(Integer id, String name, String description, int cvr, int numEmployees, Float marketValue, String email) {
+        super(email);
         this.id = id;
-    }
-
-    public Company(String name, String description, int cvr, int numEmployees, Float marketValue) {
         this.name = name;
         this.description = description;
         this.cvr = cvr;
         this.numEmployees = numEmployees;
         this.marketValue = marketValue;
-    }
-
-    public Company() {
     }
 
     public String getName() {
@@ -87,30 +71,5 @@ public class Company implements Serializable {
     }
     
     
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Company)) {
-            return false;
-        }
-        Company other = (Company) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.Company[ id=" + id + " ]";
-    }
     
 }
