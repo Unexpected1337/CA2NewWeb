@@ -32,7 +32,7 @@ public class PersonService {
     @Produces("application/json")
     public String getJson(@PathParam("id") int id) {   
        Person person =  facade.findPerson(id);
-       PersonDTO dto = new PersonDTO(person.getEmail(), person.getFirstName(), person.getLastName(), person.getAddress().getStreet(), person.getAddress().getAdditionalInfo(), person.getAddress().getCityInfo().getZipCode());
+       PersonDTO dto = new PersonDTO(person.getEmail(), person.getFirstName(), person.getLastName(), person.getAddress().getStreet(), person.getAddress().getAdditionalInfo(), person.getAddress().getCityInfo().getzip());
        String personsAsJson = new Gson().toJson(dto);      
        return personsAsJson;
     }

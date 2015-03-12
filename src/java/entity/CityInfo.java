@@ -15,7 +15,7 @@ public class CityInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     //private Integer id;
     private String zip;
     private String city;
@@ -36,20 +36,20 @@ public class CityInfo implements Serializable {
 //        this.id = id;
 //    }
 
-    public CityInfo(String zipCode, String city) {
-        this.zip = zipCode;
+    public CityInfo(String zip, String city) {
+        this.zip = zip;
         this.city = city;
     }
 
     public CityInfo() {
     }
 
-    public String getZipCode() {
+    public String getzip() {
         return zip;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zip = zipCode;
+    public void setzip(String zip) {
+        this.zip = zip;
     }
 
     public String getCity() {
