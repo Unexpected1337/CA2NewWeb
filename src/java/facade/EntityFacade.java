@@ -14,6 +14,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
+import rest.PersonDTO;
 
 /**
  *
@@ -51,6 +52,44 @@ public class EntityFacade implements Serializable {
         return person;
     }
 
+    public Person createPerson2(PersonDTO p ) {
+        EntityManager em = null;
+        try {
+            
+            em = getEntityManager();
+            Person person = new Person(p.getEmail(),p.getFirstName(),p.getLastName());
+            Address address = new Address(p.getAddress1(),p.getAddress2());
+            address.setCityInfo(getCityInfo(p.getZip()));
+            person.setAddress(address);
+            em.getTransaction().begin();
+           em.persist(person);         
+         
+            
+            em.getTransaction().commit();
+              return person;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        
+    }
+
+    
+    public CityInfo getCityInfo(String zip){
+     EntityManager em = null;
+        try {
+             em = getEntityManager();
+           return em.find(CityInfo.class, zip);
+          
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+     
+    
+    }
     public List<Person> getPersons() {
         EntityManager em = null;
         try {

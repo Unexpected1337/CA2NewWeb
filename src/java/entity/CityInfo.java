@@ -16,8 +16,8 @@ public class CityInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String zipCode;
+    //private Integer id;
+    private String zip;
     private String city;
 
     @OneToMany
@@ -28,16 +28,16 @@ public class CityInfo implements Serializable {
         addresses.add(a);
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
 
     public CityInfo(String zipCode, String city) {
-        this.zipCode = zipCode;
+        this.zip = zipCode;
         this.city = city;
     }
 
@@ -45,11 +45,11 @@ public class CityInfo implements Serializable {
     }
 
     public String getZipCode() {
-        return zipCode;
+        return zip;
     }
 
     public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+        this.zip = zipCode;
     }
 
     public String getCity() {
@@ -68,29 +68,29 @@ public class CityInfo implements Serializable {
         this.addresses = addresses;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CityInfo)) {
-            return false;
-        }
-        CityInfo other = (CityInfo) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "entity.CityInfo[ id=" + id + " ]";
-    }
+//    @Override
+//    public int hashCode() {
+//        int hash = 0;
+//        hash += (id != null ? id.hashCode() : 0);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object object) {
+//        // TODO: Warning - this method won't work in the case the id fields are not set
+//        if (!(object instanceof CityInfo)) {
+//            return false;
+//        }
+//        CityInfo other = (CityInfo) object;
+//        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "entity.CityInfo[ id=" + id + " ]";
+//    }
 
 }

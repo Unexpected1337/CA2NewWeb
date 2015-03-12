@@ -6,24 +6,21 @@
 package tester;
 
 import entity.Address;
-import entity.CityInfo;
-import entity.Hobby;
 import entity.Person;
 import facade.EntityFacade;
-import java.util.List;
 import javax.persistence.Persistence;
+import rest.PersonDTO;
 
 public class Tester {
 
     public static void main(String[] args) {
         EntityFacade facade = new EntityFacade(Persistence.createEntityManagerFactory("CA2WebPU"));
-        Person p = new Person("anders@gmail.com","Anders", "And");
-        Address a = new Address("Rolighedsvejs","2th");
-        a.setCityInfo(new CityInfo("2323","kbh"));
-        p.setAddress(a);
-        p = facade.createPerson(p);
+        PersonDTO p = new PersonDTO("andersand@live.dk","anders","and","rolighedsvej","cover","1300");
+       
+     
+        Person p2 = facade.createPerson2(p);
 
-        System.out.println(p.getId());
+        System.out.println(p2.getId());
        
 //
 //        Hobby h1 = new Hobby("Tennis", "Smashing a ball");

@@ -79,6 +79,11 @@ public class Address implements Serializable {
     public List<InfoEntity> getInfoEntities() {
         return infoEntities;
     }
+    
+    public void setInfoEntity(InfoEntity ie){
+        infoEntities.add(ie);
+        
+    }
 
     public void setInfoEntities(List<InfoEntity> infoEntities) {
         this.infoEntities = infoEntities;
