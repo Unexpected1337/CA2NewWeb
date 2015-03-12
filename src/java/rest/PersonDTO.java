@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDTO implements Serializable {
-    private int id;
+
     private String email;
     private String firstName;
     private String lastName;
-    private String address1;
-    private String address2;
+    private String street;
+    private String additionalInfo;
     private String zip;
     List<Phone> phones = new ArrayList();
 
-    public PersonDTO(String email, String firstName, String lastName, String address1, String address2, String zip) {
+    public PersonDTO(String email, String firstName, String lastName, String street, String additionalInfo, String zip) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address1 = address1;
-        this.address2 = address2;
+        this.street = street;
+        this.additionalInfo = additionalInfo;
         this.zip = zip;
     }
 
@@ -30,9 +30,6 @@ public class PersonDTO implements Serializable {
         return email;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -42,15 +39,20 @@ public class PersonDTO implements Serializable {
         return lastName;
     }
 
-    
-    
-    
-    public String getAddress1() {
-        return address1;
+    public String getStreet() {
+        return street;
     }
 
-    public String getAddress2() {
-        return address2;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 
     public String getZip() {

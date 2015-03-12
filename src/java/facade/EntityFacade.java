@@ -58,7 +58,7 @@ public class EntityFacade implements Serializable {
             
             em = getEntityManager();
             Person person = new Person(p.getEmail(),p.getFirstName(),p.getLastName());
-            Address address = new Address(p.getAddress1(),p.getAddress2());
+            Address address = new Address(p.getStreet(),p.getAdditionalInfo());
             address.setCityInfo(getCityInfo(p.getZip()));
             person.setAddress(address);
             em.getTransaction().begin();
@@ -153,5 +153,7 @@ public class EntityFacade implements Serializable {
             em.close();
         }
     }
+       
+//       public PersonDTO findPersonDTO(Integer)
     
 }

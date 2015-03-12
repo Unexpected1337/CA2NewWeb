@@ -27,17 +27,15 @@ public class PersonService {
         facade = new EntityFacade(Persistence.createEntityManagerFactory("CA2WebPU"));
     }
 
-//    @GET
-//    @Path("{id}")
-//    @Produces("application/json")
-//    public String getJson(@PathParam("id") int id) {
-//       
-////       Person person =  facade.findPerson(id);
-////       PersonDTO dto = new PersonDTO(person.getId(), person.getEmail(), person.getFirstName(), person.getLastName());
-////       String personsAsJson = new Gson().toJson(dto);
-////       
-//       //return personsAsJson;
-//    }
+    @GET
+    @Path("{id}")
+    @Produces("application/json")
+    public String getJson(@PathParam("id") int id) {   
+       Person person =  facade.findPerson(id);
+       PersonDTO dto = new PersonDTO(person.getEmail(), person.getFirstName(), person.getLastName(), person.getAddress().getStreet(), person.getAddress().getAdditionalInfo(), person.getAddress().getCityInfo().getZipCode());
+       String personsAsJson = new Gson().toJson(dto);      
+       return personsAsJson;
+    }
 
     @PUT
     @Consumes("application/json")
