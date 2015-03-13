@@ -22,9 +22,7 @@ public class Person extends InfoEntity implements Serializable {
 
     private String firstName;
     private String lastName;
-//    private String street;
-//    private String additionalInfo;
-//    private String zip;
+
 
     @ManyToMany
     List<Hobby> hobbies = new ArrayList();
@@ -37,9 +35,7 @@ public class Person extends InfoEntity implements Serializable {
         super(email);
         this.firstName = firstName;
         this.lastName = lastName;
-//        this.street = street;
-//        this.additionalInfo = additionalInfo;
-//        this.zip = zip;
+
     }
 
     public Person() {
@@ -68,33 +64,6 @@ public class Person extends InfoEntity implements Serializable {
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
     }
-    
-    //SLET SLET SLET SLET SLET SLET SLET SLET
 
-//    public String getStreet() {
-//        return street;
-//    }
-//
-//    public void setStreet(String street) {
-//        this.street = street;
-//    }
-//
-//    public String getAdditionalInfo() {
-//        return additionalInfo;
-//    }
-//
-//    public void setAdditionalInfo(String additionalInfo) {
-//        this.additionalInfo = additionalInfo;
-//    }
-//
-//    public String getZip() {
-//        return zip;
-//    }
-//
-//    public void setZip(String zip) {
-//        this.zip = zip;
-//    }
-    
-    
 
 }

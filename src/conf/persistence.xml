@@ -11,13 +11,12 @@
     <class>entity.Company</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/CA2Web"/>
-      <property name="javax.persistence.jdbc.user" value="test"/>
-      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.password" value="test"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@datdb.cphbusiness.dk:1521:dat"/>
+      <property name="javax.persistence.jdbc.user" value="cphah228"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.password" value="cphah228"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="javax.persistence.sql-load-script-source" value="scripts/populateZip_1.sql"/>
-      
     </properties>
   </persistence-unit>
 </persistence>

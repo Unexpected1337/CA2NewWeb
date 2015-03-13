@@ -16,12 +16,13 @@ public class Tester {
     public static void main(String[] args) {
         EntityFacade facade = new EntityFacade(Persistence.createEntityManagerFactory("CA2WebPU"));
         PersonDTO p = new PersonDTO("andersand@live.dk","anders","and","rolighedsvej","cover","1300");
-       
-     
-        Person p2 = facade.createPerson2(p);
+        PersonDTO p2 = new PersonDTO("snake@live.dk","Professor","Snape","Slytherin","Hogwards","Perron 3/4");
+        
+        Person pout = facade.createPerson2(p);
+        Person pout2 = facade.createPerson2(p2);
 
-        System.out.println(p2.getId());
-       
+        System.out.println(pout.getId());
+        System.out.println(pout2.getId());
 //
 //        Hobby h1 = new Hobby("Tennis", "Smashing a ball");
 //        p = facade.addHobby(p, h1);
